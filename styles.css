@@ -1,41 +1,84 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: auto;
-  padding: 5em 10em;
-  background-color: azure;
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  color: rgb(9, 9, 82);
+  font-family: "Poppins", Arial, sans-serif;
 }
 
-.container {
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+body {
+  background-color: azure;
+  text-align: center;
+  background: url("./cache/backgroun.jpg");
+  -o-object-fit: cover;
+     object-fit: cover;
+  justify-content: center;
+  background-repeat: no-repeat;
+  align-items: center;
+  margin: auto;
+  overflow: hidden;
+  /* display: flex; */
+}
+
+.app-container {
+  padding: 4em;
+  margin: 20em auto;
+  width: 30em;
+  height: 30em;
+  background-color: rgba(253, 252, 252, 0.93);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 1em;
+  font-size: 5em;
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 2.5em;
 }
 
 .form-group {
-  text-align: left;
-  margin: 0 auto;
+  margin: 1em auto;
 }
 
 label {
   display: block;
-  margin-bottom: 5px;
-  font-size: 14px;
+  margin: 0.2em;
+  font-size: 1.9em;
+  font-weight: 500;
 }
 
 input {
-  width: 10em;
-  padding: 10px;
-  border: 1px solid #aaa;
+  width: 13em;
+  padding: 0.5em;
+  border: 2px solid rgb(9, 9, 82);
+  border-radius: 0.5em;
+  font-size: 1em;
+  color: rgb(9, 9, 82);
+  margin-bottom: 0.5em;
+}
+
+button {
+  padding: 0.5em 2em;
+  color: white;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 1em;
+  background-color: rgb(9, 9, 82);
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 0.5em;
+}
+
+button:hover {
+  background: rgb(210, 67, 1);
+  color: white;
+  transition: ease-in 0.2s;
 }/*# sourceMappingURL=styles.css.map */
