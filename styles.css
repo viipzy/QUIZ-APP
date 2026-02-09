@@ -132,6 +132,16 @@ button:hover {
     padding: 0.5rem 1.5rem;
   }
 }
+.option.correct {
+  background: #c8f7c5;
+  border-color: #2ecc71;
+}
+
+.option.wrong {
+  background: #f7c5c5;
+  border-color: #e74c3c;
+}
+
 @media (max-height: 620px) {
   .app-container {
     width: 260px;

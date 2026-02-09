@@ -1,41 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Quiz App | Quiz</title>
-  <link rel="stylesheet" href="quiz.css" />
-</head>
-<body>
-
-  <div class="quiz-container">
-    <div class="quiz-header">
-      <span id="progress">Question 1 of 50</span>
-      <span id="timer">15s</span>
-    </div>
-
-    <h2 id="question">Question text goes here</h2>
-
-    <div class="options" id="options"></div>
-
-    <div class="quiz-actions">
-      <button id="skipBtn">Skip</button>
-      <button id="nextBtn" disabled>Next</button>
-    </div>
-  </div>
-
-  <script src="./quiz.js">   
-   /* const questions = [
+const questions = [
   {
     question: "What does HTML stand for?",
-    options: ["Hyper Text Markup Language", "High Text Machine Language", "Hyper Tool Multi Language", "None"],
-    answer: 0
+    options: [
+      "Hyper Text Markup Language",
+      "High Text Machine Language",
+      "Hyper Tool Multi Language",
+      "None",
+    ],
+    answer: 0,
   },
   {
     question: "What does CSS do?",
     options: ["Structure", "Style", "Logic", "Database"],
-    answer: 1
+    answer: 1,
   },
-  
+  // ADD MORE QUESTIONS UP TO 50
 ];
 
 let currentIndex = 0;
@@ -51,6 +30,7 @@ const progressEl = document.getElementById("progress");
 const nextBtn = document.getElementById("nextBtn");
 const skipBtn = document.getElementById("skipBtn");
 
+
 function loadQuestion() {
   clearInterval(interval);
   timer = 15;
@@ -64,48 +44,77 @@ function loadQuestion() {
   progressEl.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
 
   q.options.forEach((opt, i) => {
-    const btn = document.createElement("div");
-    btn.textContent = opt;
-    btn.className = "option";
-    btn.onclick = () => selectOption(btn, i);
-    optionsEl.appendChild(btn);
+    const div = document.createElement("div");
+    div.textContent = opt;
+    div.className = "option";
+    div.onclick = () => selectOption(div, i);
+    optionsEl.appendChild(div);
   });
 
+  updateNextButton();
   startTimer();
 }
 
+
 function startTimer() {
   timerEl.textContent = timer + "s";
+
   interval = setInterval(() => {
     timer--;
     timerEl.textContent = timer + "s";
+
     if (timer === 0) {
       clearInterval(interval);
-      nextBtn.disabled = false;
+      revealCorrectAnswer();
     }
   }, 1000);
 }
+
 
 function selectOption(element, index) {
   if (answered) return;
   answered = true;
   clearInterval(interval);
+  revealCorrectAnswer(index);
+}
+
+
+function revealCorrectAnswer(selectedIndex = null) {
+  answered = true;
+  nextBtn.disabled = false;
 
   const correct = questions[currentIndex].answer;
   const options = document.querySelectorAll(".option");
 
   options.forEach((opt, i) => {
-    if (i === correct) opt.classList.add("correct");
-    if (i === index && i !== correct) opt.classList.add("wrong");
     opt.style.pointerEvents = "none";
+
+    if (i === correct) {
+      opt.classList.add("correct");
+    }
+
+    if (selectedIndex !== null && i === selectedIndex && i !== correct) {
+      opt.classList.add("wrong");
+    }
   });
 
-  if (index === correct) score++;
-  nextBtn.disabled = false;
+  if (selectedIndex === correct) score++;
+}
+
+
+function updateNextButton() {
+  if (currentIndex === questions.length - 1) {
+    nextBtn.textContent = "Submit";
+    nextBtn.classList.add("submit");
+  } else {
+    nextBtn.textContent = "Next";
+    nextBtn.classList.remove("submit");
+  }
 }
 
 nextBtn.onclick = () => {
   currentIndex++;
+
   if (currentIndex < questions.length) {
     loadQuestion();
   } else {
@@ -114,12 +123,12 @@ nextBtn.onclick = () => {
   }
 };
 
+
 skipBtn.onclick = () => {
+  if (answered) return;
   clearInterval(interval);
-  nextBtn.click();
+  revealCorrectAnswer();
 };
 
-loadQuestion(); */
-  </script>
-</body>
-</html>
+
+loadQuestion();
