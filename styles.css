@@ -9,7 +9,7 @@
 body {
   background-color: azure;
   text-align: center;
-  background: url("./cache/backgroun.jpg");
+  background: url("./cache/bg2.jpg");
   -o-object-fit: cover;
      object-fit: cover;
   justify-content: center;
