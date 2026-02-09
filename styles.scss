@@ -30,7 +30,6 @@ body {
 }
 
 
-/* ===== NEON CIRCLE ===== */
 .app-container {
   width: min(85vw, 420px);
   aspect-ratio: 1 / 1;
@@ -43,14 +42,14 @@ body {
   padding: 2rem;
   text-align: center;
 
-  /* Neon glow */
   box-shadow:
     0 0 20px rgba($neon, 0.5),
-    0 0 40px rgba($neon, 0.4),
-    0 0 80px rgba($neon, 0.2);
+    0 0 40px rgba($neon, 0.6),
+    0 0 80px rgba($neon, 0.4);
 
   animation: pulseGlow 3s ease-in-out infinite;
 }
+
 
 @keyframes pulseGlow {
   0%, 100% {
@@ -138,7 +137,7 @@ button:hover {
 }
 
 
-/* ===== EXTRA SMALL PHONES ===== */
+
 @media (max-width: 420px), (max-height: 700px) {
 
   .app-container {
@@ -170,7 +169,7 @@ button:hover {
   }
 }
 
-/* ===== SHORT SCREENS (like small Androids) ===== */
+
 @media (max-height: 620px) {
   .app-container {
     width: 260px;

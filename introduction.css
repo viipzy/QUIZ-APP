@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./cache/bg2.jpg") no-repeat;
+  background-size: cover;
+  background-position: center 65%;
+}
+
+.instructions {
+  width: min(90vw, 360px);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1.2rem;
+  padding: 1.8rem;
+  text-align: left;
+  box-shadow: 0 0 18px rgba(0, 246, 255, 0.7), 0 0 40px rgba(0, 246, 255, 0.5), 0 0 80px rgba(0, 246, 255, 0.3);
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 18px rgba(0, 246, 255, 0.7), 0 0 40px rgba(0, 246, 255, 0.5), 0 0 80px rgba(0, 246, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px #00f6ff, 0 0 60px rgba(0, 246, 255, 0.8), 0 0 120px rgba(0, 246, 255, 0.6);
+  }
+}
+.instructions h1 {
+  text-align: center;
+  color: #090952;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.instructions ul {
+  list-style: disc;
+  color: #090952;
+}
+
+.instructions li {
+  font-size: 0.9rem;
+  margin: 0.7rem 0;
+  line-height: 1.4;
+}
+
+.instructions button {
+  margin-top: 1.2rem;
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #090952, #00f6ff);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 246, 255, 0.8);
+  transition: transform 0.2s ease;
+}
+
+.instructions button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: -120%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+  transition: 0.6s;
+}
+
+.instructions button:hover::before {
+  left: 120%;
+}
+
+.instructions button:hover {
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .instructions {
+    width: 420px;
+    padding: 2.2rem;
+  }
+  .instructions h1 {
+    font-size: 2rem;
+  }
+  .instructions li {
+    font-size: 1rem;
+  }
+  .instructions button {
+    font-size: 1rem;
+  }
+}/*# sourceMappingURL=introduction.css.map */
