@@ -1,84 +1,149 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap");
 * {
   margin: 0;
   padding: 0;
-  color: rgb(9, 9, 82);
+  box-sizing: border-box;
   font-family: "Poppins", Arial, sans-serif;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
-  background-color: azure;
-  text-align: center;
-  background: url("./cache/bg2.jpg");
-  -o-object-fit: cover;
-     object-fit: cover;
+  min-height: 100svh;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  background-image: url("./cache/bg2.jpg");
   background-repeat: no-repeat;
-  align-items: center;
-  margin: auto;
+  background-size: cover;
+  background-position: center center;
   overflow: hidden;
-  /* display: flex; */
 }
 
+/* ===== NEON CIRCLE ===== */
 .app-container {
-  padding: 4em;
-  margin: 20em auto;
-  width: 30em;
-  height: 30em;
-  background-color: rgba(253, 252, 252, 0.93);
+  width: min(85vw, 420px);
+  aspect-ratio: 1/1;
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 50%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
+  padding: 2rem;
+  text-align: center;
+  /* Neon glow */
+  box-shadow: 0 0 20px rgba(0, 246, 255, 0.5), 0 0 40px rgba(0, 246, 255, 0.4), 0 0 80px rgba(0, 246, 255, 0.2);
+  animation: pulseGlow 3s ease-in-out infinite;
 }
 
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 246, 255, 0.7), 0 0 40px rgba(0, 246, 255, 0.6), 0 0 80px rgba(0, 246, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px #00f6ff, 0 0 60px rgba(0, 246, 255, 0.9), 0 0 120px rgba(0, 246, 255, 0.7);
+  }
+}
 h1 {
-  text-align: center;
-  margin-top: 1em;
-  font-size: 5em;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: rgb(9, 9, 82);
 }
 
 h2 {
-  text-align: center;
-  font-size: 2.5em;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  margin-bottom: 1rem;
 }
 
 .form-group {
-  margin: 1em auto;
+  margin: 0.8rem 0;
 }
 
 label {
-  display: block;
-  margin: 0.2em;
-  font-size: 1.9em;
+  font-size: 1.1rem;
   font-weight: 500;
+  margin-bottom: 0.3rem;
 }
 
 input {
-  width: 13em;
-  padding: 0.5em;
+  width: 100%;
+  padding: 0.6rem;
   border: 2px solid rgb(9, 9, 82);
-  border-radius: 0.5em;
-  font-size: 1em;
-  color: rgb(9, 9, 82);
-  margin-bottom: 0.5em;
+  border-radius: 0.4rem;
+  font-size: 1rem;
 }
 
 button {
-  padding: 0.5em 2em;
-  color: white;
-  border-radius: 5px;
-  font-size: 1em;
-  background-color: rgb(9, 9, 82);
+  margin-top: 1rem;
+  padding: 0.7rem 2.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
   cursor: pointer;
-  font-weight: 600;
-  margin-top: 0.5em;
+  color: white;
+  background: linear-gradient(135deg, rgb(9, 9, 82), #00f6ff);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 246, 255, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  transition: 0.6s;
+}
+
+button:hover::before {
+  left: 100%;
 }
 
 button:hover {
-  background: rgb(210, 67, 1);
-  color: white;
-  transition: ease-in 0.2s;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00f6ff, 0 0 40px rgba(0, 246, 255, 0.8);
+}
+
+/* ===== EXTRA SMALL PHONES ===== */
+@media (max-width: 420px), (max-height: 700px) {
+  .app-container {
+    width: min(90vw, 300px);
+    height: min(90vw, 300px);
+    padding: 1rem;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+  }
+  label {
+    font-size: 0.9rem;
+  }
+  input {
+    font-size: 0.85rem;
+    padding: 0.4rem;
+  }
+  button {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.5rem;
+  }
+}
+/* ===== SHORT SCREENS (like small Androids) ===== */
+@media (max-height: 620px) {
+  .app-container {
+    width: 260px;
+    height: 260px;
+  }
+}
+@media (max-width: 480px) {
+  .app-container {
+    padding: 1.2rem;
+  }
 }/*# sourceMappingURL=styles.css.map */
