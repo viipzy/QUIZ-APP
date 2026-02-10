@@ -1,11 +1,9 @@
 const user = localStorage.getItem("quizUser") || "Player";
 document.getElementById("userName").textContent = `Well done `;
 
-/* =========================
-   SCORE DISPLAY
-========================= */
+
 const score = Number(localStorage.getItem("quizScore")) || 0;
-const total = 35;
+const total = 50;
 
 const percent = Math.round((score / total) * 100);
 
@@ -22,9 +20,7 @@ if (percent >= 80) {
   message.textContent = `Keep practicing ${user} — you’ll get there `;
 }
 
-/* =========================
-   RESTART QUIZ
-========================= */
+
 function restartQuiz() {
   localStorage.removeItem("quizScore");
   window.location.href = "quiz.html";
