@@ -1,5 +1,5 @@
 const questions = [
-  // HTML & CSS (15)
+  // HTML & CSS
   {
     question: "What does HTML stand for?",
     options: [
@@ -20,6 +20,7 @@ const questions = [
     options: ["font-color", "text-color", "color", "fgcolor"],
     answer: 2,
   },
+
   {
     question: "Which CSS property controls text size?",
     options: ["font-style", "text-size", "font-size", "text-style"],
@@ -86,7 +87,7 @@ const questions = [
     answer: 1,
   },
 
-  // JavaScript (20)
+  // JavaScript
   {
     question: "Which keyword declares a variable in JavaScript?",
     options: ["var", "int", "string", "let"],
@@ -201,6 +202,103 @@ const questions = [
     question: "Which statement handles errors?",
     options: ["try...catch", "error()", "throw()", "if...else"],
     answer: 0,
+  },
+  {
+    question: "Which HTML tag is used to embed a video?",
+    options: ["<media>", "<movie>", "<video>", "<embed>"],
+    answer: 2,
+  },
+  {
+    question:
+      "Which attribute is used to provide an alternate text for an image?",
+    options: ["title", "alt", "src", "href"],
+    answer: 1,
+  },
+  {
+    question:
+      "Which CSS property controls the space between elements’ borders?",
+    options: ["margin", "padding", "gap", "border-spacing"],
+    answer: 0,
+  },
+  {
+    question: "What does the <meta charset='UTF-8'> tag do?",
+    options: [
+      "Sets page language",
+      "Defines document title",
+      "Specifies character encoding",
+      "Links external CSS",
+    ],
+    answer: 2,
+  },
+  {
+    question: "Which CSS property is used to make text uppercase?",
+    options: [
+      "font-style",
+      "text-transform",
+      "text-decoration",
+      "letter-spacing",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Which HTML element is used for navigation links?",
+    options: ["<menu>", "<nav>", "<section>", "<aside>"],
+    answer: 1,
+  },
+  {
+    question: "Which CSS unit is relative to the root font size?",
+    options: ["em", "px", "rem", "%"],
+    answer: 2,
+  },
+  {
+    question: "What does the CSS z-index property control?",
+    options: [
+      "Text size",
+      "Stacking order",
+      "Element opacity",
+      "Position type",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Which HTML tag is used to group form elements?",
+    options: ["<group>", "<fieldset>", "<section>", "<form-group>"],
+    answer: 1,
+  },
+  {
+    question: "Which CSS display value places elements in a row by default?",
+    options: ["block", "inline", "flex", "grid"],
+    answer: 2,
+  },
+  {
+    question: "What does the CSS overflow property do?",
+    options: [
+      "Controls scrolling behavior",
+      "Defines element visibility",
+      "Sets element width",
+      "Aligns text",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Which HTML element is used to define important text?",
+    options: ["<b>", "<strong>", "<i>", "<mark>"],
+    answer: 1,
+  },
+  {
+    question: "Which CSS property adds shadow to elements?",
+    options: ["text-shadow", "filter", "box-shadow", "drop-shadow"],
+    answer: 2,
+  },
+  {
+    question: "Which HTML attribute opens a link in a new tab?",
+    options: ["new", "blank", "target='_blank'", "rel='new'"],
+    answer: 2,
+  },
+  {
+    question: "Which CSS property controls how an image fits its container?",
+    options: ["background-size", "object-fit", "image-fit", "cover"],
+    answer: 1,
   },
 ];
 
