@@ -12,13 +12,13 @@ The quiz application allows users to enter their name, read instructions, and ta
 
 
 ## SCREENSHOTS
-[LANDING PAGE](./cache/landing_page.png)
+![LANDING PAGE](./cache/landing_page.png)
 
-[INSTRUCTION PAGE](./cache/instruction_page.png)
+![INSTRUCTION PAGE](./cache/instruction_page.png)
 
-[QUIZ PAGE](./cache/quiz_interface.png)
+![QUIZ PAGE](./cache/quiz_interface.png)
 
-[RESULT PAGE](./cache/result.png)
+![RESULT PAGE](./cache/result.png)
 
 ## Features
 
