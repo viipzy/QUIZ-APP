@@ -10,7 +10,7 @@
     <h1>Quiz App</h1>    
     <h2>Welcome to the Quiz!</h2>
 
-    <form action="./instruction.html" id="startForm">
+    <form action="./instruction.html" id="startForm" onsubmit="saveName()">
       <div class="form-group">
         <label for="username">YOUR NAME</label>
         <input 
@@ -26,7 +26,12 @@
     </form>
   </div>
 
-
+  <script>
+    function saveName() {
+  const name = document.getElementById("username").value;
+  localStorage.setItem("quizUser", name);
+    }
+  </script>
   
 </body>
 </html>

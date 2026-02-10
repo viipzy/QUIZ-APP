@@ -16,10 +16,11 @@ body {
 
 .quiz-container {
   width: min(90vw, 400px);
-  background: rgba(255,255,255,0.96);
+  background: rgba(253, 251, 252, 0.96);
   padding: 1.5rem;
   border-radius: 1.2rem;
   box-shadow: 0 0 30px rgba($neon, 0.6);
+ 
 }
 
 .quiz-header {
@@ -28,9 +29,15 @@ body {
   font-weight: 600;
   margin-bottom: 1rem;
 }
-
+#progress {
+  color: white;
+  padding: 0.5em;
+  border-radius: 10px;
+  background: linear-gradient(135deg, $main, $neon);
+}
 #timer {
   color: red;
+
 }
 
 h2 {
@@ -72,3 +79,16 @@ button {
   background: linear-gradient(135deg, $main, $neon);
   color: white;
 }
+
+button:hover::before {
+    left: 100%;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    box-shadow:
+      0 0 px rgba($neon, 1),
+      0 0 40px rgba($neon, 0.8);
+  }
+  
+  
