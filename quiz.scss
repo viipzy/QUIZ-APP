@@ -71,6 +71,18 @@ h2 {
   margin-top: 1.2rem;
 }
 
+.end{
+  button {
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, $main, $neon);
+    color: white;
+  }
+  
+}
+
 button {
   padding: 0.6rem 1.4rem;
   border-radius: 6px;

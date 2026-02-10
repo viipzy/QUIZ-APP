@@ -26,8 +26,8 @@ The quiz application allows users to enter their name, read instructions, and ta
 * Timed questions (15 seconds per question)
 * Automatic transition when time expires
 * Instant feedback on selected answers
-* Skip functionality with answer reveal
 * Progress tracking across questions
+* End option to reveal result
 * Submit option on final question
 * Result summary with score and percentage
 * Responsive, mobile-first layout

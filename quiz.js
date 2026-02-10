@@ -314,7 +314,7 @@ const optionsEl = document.getElementById("options");
 const timerEl = document.getElementById("timer");
 const progressEl = document.getElementById("progress");
 const nextBtn = document.getElementById("nextBtn");
-const skipBtn = document.getElementById("skipBtn");
+const endBtn = document.getElementById("endBtn");
 
 function loadQuestion() {
   clearInterval(interval);
@@ -322,7 +322,8 @@ function loadQuestion() {
 
   timer = 15;
   answered = false;
-  nextBtn.disabled = true;
+
+  nextBtn.style.display = "none"; // 👈 hide initially
 
   const q = questions[currentIndex];
   questionEl.textContent = q.question;
@@ -374,7 +375,8 @@ function selectOption(element, index) {
 
 function revealCorrectAnswer(selectedIndex = null) {
   answered = true;
-  nextBtn.disabled = false;
+
+  nextBtn.style.display = "block"; // 👈 show now
 
   const correct = questions[currentIndex].answer;
   const options = document.querySelectorAll(".option");
@@ -382,9 +384,7 @@ function revealCorrectAnswer(selectedIndex = null) {
   options.forEach((opt, i) => {
     opt.style.pointerEvents = "none";
 
-    if (i === correct) {
-      opt.classList.add("correct");
-    }
+    if (i === correct) opt.classList.add("correct");
 
     if (selectedIndex !== null && i === selectedIndex && i !== correct) {
       opt.classList.add("wrong");
@@ -420,17 +420,9 @@ nextBtn.onclick = () => {
   goNext();
 };
 
-skipBtn.onclick = () => {
-  if (answered) return;
-
-  answered = true;
-  clearInterval(interval);
-
-  revealCorrectAnswer();
-
-  setTimeout(() => {
-    goNext();
-  }, 1000); // brief reveal before moving
+endBtn.onclick = () => {
+  localStorage.setItem("quizScore", score);
+  window.location.href = "result.html";
 };
 
 loadQuestion();
