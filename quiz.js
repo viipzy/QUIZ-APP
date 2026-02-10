@@ -323,7 +323,7 @@ function loadQuestion() {
   timer = 15;
   answered = false;
 
-  nextBtn.style.display = "none"; // 👈 hide initially
+  nextBtn.style.display = "none"; //  hide initially
 
   const q = questions[currentIndex];
   questionEl.textContent = q.question;
@@ -341,7 +341,7 @@ function loadQuestion() {
 
   updateNextButton();
   startTimer();
-}
+};
 
 function startTimer() {
   timerEl.textContent = timer + "s";
@@ -352,17 +352,18 @@ function startTimer() {
 
     if (timer === 0) {
       clearInterval(interval);
+      answered = true;
       revealCorrectAnswer();
       autoNextAfterTimeout();
     }
   }, 1000);
-}
+};
 
 function autoNextAfterTimeout() {
   autoNextTimeout = setTimeout(() => {
     goNext();
-  }, 1200); // 1.2s reveal time
-}
+  }, 1200); 
+};
 
 function selectOption(element, index) {
   if (answered) return;
@@ -371,12 +372,16 @@ function selectOption(element, index) {
   clearTimeout(autoNextTimeout);
 
   revealCorrectAnswer(index);
-}
+};
 
 function revealCorrectAnswer(selectedIndex = null) {
   answered = true;
 
-  nextBtn.style.display = "block"; // 👈 show now
+  clearInterval(interval);
+  clearTimeout(autoNextTimeout);
+
+  nextBtn.style.display = "block";
+  nextBtn.style.pointerEvents = "auto";
 
   const correct = questions[currentIndex].answer;
   const options = document.querySelectorAll(".option");
@@ -385,14 +390,14 @@ function revealCorrectAnswer(selectedIndex = null) {
     opt.style.pointerEvents = "none";
 
     if (i === correct) opt.classList.add("correct");
-
     if (selectedIndex !== null && i === selectedIndex && i !== correct) {
       opt.classList.add("wrong");
     }
   });
 
   if (selectedIndex === correct) score++;
-}
+};
+
 
 function updateNextButton() {
   if (currentIndex === questions.length - 1) {
@@ -402,9 +407,13 @@ function updateNextButton() {
     nextBtn.textContent = "Next";
     nextBtn.classList.remove("submit");
   }
-}
+};
 
 function goNext() {
+  clearInterval(interval);
+  clearTimeout(autoNextTimeout);
+
+
   currentIndex++;
 
   if (currentIndex < questions.length) {
@@ -412,13 +421,10 @@ function goNext() {
   } else {
     localStorage.setItem("quizScore", score);
     window.location.href = "result.html";
-  }
-}
-
-nextBtn.onclick = () => {
-  if (!answered) return;
-  goNext();
+  };
 };
+
+nextBtn.onclick = () => goNext();
 
 endBtn.onclick = () => {
   localStorage.setItem("quizScore", score);
